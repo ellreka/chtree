@@ -1,0 +1,22 @@
+{
+  "name": "chtree",
+  "repository": "git@github.com:ellreka/chtree.git",
+  "author": "ellreka <ellreka5364@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "rimraf build && webpack --mode development --watch",
+    "build": "rimraf build && webpack --mode production"
+  },
+  "devDependencies": {
+    "@ellreka/configs": "^1.0.4",
+    "copy-webpack-plugin": "^6.1.0",
+    "css-loader": "^4.3.0",
+    "mini-css-extract-plugin": "^0.11.1",
+    "rimraf": "^3.0.2",
+    "style-loader": "^1.2.1",
+    "ts-loader": "^8.0.3",
+    "typescript": "^4.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
