@@ -30,6 +30,18 @@ export const ScrollBar: React.FC = () => {
         canvas.height = window.innerHeight - (top ? top : 0)
         ctx.fillStyle = 'green'
         ctx.fillRect(0, 0, 50, canvas.height)
+        const images = document.querySelectorAll('.thread .image')
+        images.forEach((img) => {
+          const { top } = img.getBoundingClientRect()
+          const a = getPercentage(body.clientHeight, window.pageYOffset + top)
+          const b = getRealNumber(canvas.height, a)
+          ctx.fillStyle = 'yellow'
+          ctx.lineWidth = 5
+          ctx.beginPath()
+          ctx.arc(canvas.width / 2, b, 5, 0, 2 * Math.PI)
+          ctx.closePath()
+          ctx.fill()
+        })
         ctx.fillStyle = 'red'
         ctx.fillRect(
           0,
@@ -70,11 +82,6 @@ export const ScrollBar: React.FC = () => {
 
   window.addEventListener('scroll', () => {
     drawCanvas()
-  })
-
-  const images = document.querySelectorAll('.thread .image')
-  images.forEach((img) => {
-    const { top } = img.getBoundingClientRect()
   })
   return (
     <div style={{ position: 'fixed', top, right: 0 }}>
