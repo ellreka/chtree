@@ -27,7 +27,7 @@ export const ScrollBar: React.FC = () => {
       )
       const draw = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
-        canvas.height = window.innerHeight - (top ? top : 0)
+        canvas.height = window.innerHeight
         ctx.fillStyle = 'green'
         ctx.fillRect(0, 0, 50, canvas.height)
         const images = document.querySelectorAll('.thread .image')
@@ -84,7 +84,9 @@ export const ScrollBar: React.FC = () => {
     drawCanvas()
   })
   return (
-    <div style={{ position: 'fixed', top, right: 0 }}>
+    <div
+      className="chtree--scrollbar"
+      style={{ position: 'fixed', top: 0, right: 0 }}>
       <canvas id="chtree--scrollbar" width={50} ref={ref}></canvas>
     </div>
   )
